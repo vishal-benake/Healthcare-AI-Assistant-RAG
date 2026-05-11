@@ -82,13 +82,13 @@ Before running anything, ensure your virtual environment is active and all libra
 
 Activate Environment:
 
-Bash
-myenv\Scripts\activate
-Install Requirements: (If you haven't already)
-
-Bash
+```bash
+    myenv\Scripts\activate
+    Install Requirements: (If you haven't already)
+```
+```bash
     pip install -r requirements.txt
-    ```
+```
 
 ---
 
