@@ -9,11 +9,11 @@
 
 A professional-grade Retrieval-Augmented Generation (RAG) system designed to provide clinical insights by indexing medical documents (PDF, XML, CSV, TXT) and querying them using Large Language Models.
 
----
+
 
 ![demo image](demo.png)
 
----
+
 
 ##  Key Features
 *   **Multi-Format Ingestion:** Seamlessly processes PDFs, Clinical XMLs, CSV data, and raw text.
