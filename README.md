@@ -39,11 +39,17 @@ Healthcare-AI-Assistant-RAG/
 
 ## Installation & Setup
 
-1. Clone & Environment
+Clone & Environment
 ```bash
 git clone [https://github.com/vishal-benake/Healthcare-AI-Assistant-RAG.git](https://github.com/vishal-benake/Healthcare-AI-Assistant-RAG.git)
+```
+```bash
 cd healthcare-rag
+```
+```bash
 python -m venv myenv
+```
+```bash
 source myenv/bin/activate  # Windows: myenv\Scripts\activate
 ```
 
@@ -84,8 +90,9 @@ Activate Environment:
 
 ```bash
     myenv\Scripts\activate
+    ```
     Install Requirements: (If you haven't already)
-```
+
 ```bash
     pip install -r requirements.txt
 ```
