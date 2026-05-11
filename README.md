@@ -41,7 +41,7 @@ Healthcare-AI-Assistant-RAG/
 
 1. Clone & Environment
 Bash
-git clone [https://github.com/your-username/healthcare-rag.git](https://github.com/your-username/healthcare-rag.git)
+git clone [https://github.com/vishal-benake/Healthcare-AI-Assistant-RAG.git](https://github.com/vishal-benake/Healthcare-AI-Assistant-RAG.git)
 cd healthcare-rag
 python -m venv myenv
 source myenv/bin/activate  # Windows: myenv\Scripts\activate
