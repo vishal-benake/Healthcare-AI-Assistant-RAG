@@ -18,6 +18,10 @@ A professional-grade Retrieval-Augmented Generation (RAG) system designed to pro
 
 ---
 
+![demo image](demo.png)
+
+---
+
 ##  Project Structure
 ```text
 Healthcare-AI-Assistant-RAG/

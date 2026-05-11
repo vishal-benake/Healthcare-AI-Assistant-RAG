@@ -21,7 +21,7 @@ def create_app():
     @scheduler.task('interval', id='sync_docs', seconds=60) # Scans every 60 seconds
     def scheduled_sync():
         with app.app_context():
-            print("🔍 Periodic scan: Checking for new clinical documents...")
+            print("Periodic scan: Checking for new clinical documents...")
             engine.sync_new_data()
 
     scheduler.init_app(app)

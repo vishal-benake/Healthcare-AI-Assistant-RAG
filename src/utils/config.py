@@ -16,7 +16,7 @@ DEVICE = "cpu"
 # Memory Config
 MAX_HISTORY = 6
 
-CHUNK_SIZE = 2000      # Larger chunks = fewer total embeddings to generate
+CHUNK_SIZE = 3000      # Larger chunks = fewer total embeddings to generate
 CHUNK_OVERLAP = 100
 
 for path in [DATA_DIR, FAISS_INDEX_DIR, LOG_DIR]:
