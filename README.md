@@ -33,6 +33,7 @@ Healthcare-AI-Assistant-RAG/
 ├── app.py              # Main Web Server
 ├── ingest_data.py      # Manual Data Pipeline script
 └── requirements.txt    # Project dependencies
+```
 
 ---
 
