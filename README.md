@@ -50,7 +50,7 @@ Clone & Environment
 git clone https://github.com/vishal-benake/Healthcare-AI-Assistant-RAG.git
 ```
 ```bash
-cd healthcare-rag
+cd Healthcare-AI-Assistant-RAG
 ```
 ```bash
 python -m venv myenv
