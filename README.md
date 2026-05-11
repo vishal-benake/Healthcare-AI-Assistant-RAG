@@ -40,24 +40,31 @@ Healthcare-AI-Assistant-RAG/
 ## Installation & Setup
 
 1. Clone & Environment
-Bash
+```bash
 git clone [https://github.com/vishal-benake/Healthcare-AI-Assistant-RAG.git](https://github.com/vishal-benake/Healthcare-AI-Assistant-RAG.git)
 cd healthcare-rag
 python -m venv myenv
 source myenv/bin/activate  # Windows: myenv\Scripts\activate
+```
 
 
 ## Install Dependencies
-Bash
+```bash
 pip install -r requirements.txt
-3. Data Ingestion
+```
+
+## Data Ingestion
 Place your medical documents in the /data folder, then run the pipeline to vectorize the content:
 
-Bash
+```bash
 python ingest_data.py
-4. Run the Application
-Bash
+```
+
+## Run the Application
+```bash
 python app.py
+```
+
 Visit http://localhost:5000 in your browser.
 
 ## Configuration
