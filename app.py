@@ -18,6 +18,8 @@ app = Flask(__name__)
 
 documents = load_documents()
 chunks = split_documents(documents)
+if not chunks:
+    raise ValueError("No chunks generated. Check document content quality.")
 
 embedding_model, device = get_embedding_model()
 

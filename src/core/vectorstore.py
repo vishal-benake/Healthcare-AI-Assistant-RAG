@@ -2,7 +2,28 @@ import os
 from langchain_community.vectorstores import FAISS
 from src.config import FAISS_PATH
 
+# def create_vectorstore(texts, embedding_model, metadatas):
+
+#     vectorstore = FAISS.from_texts(
+#         texts=texts,
+#         embedding=embedding_model,
+#         metadatas=metadatas
+#     )
+
+#     os.makedirs(FAISS_PATH, exist_ok=True)
+#     vectorstore.save_local(FAISS_PATH)
+
+#     return vectorstore
+
 def create_vectorstore(texts, embedding_model, metadatas):
+
+    if not texts:
+        raise ValueError(" texts is empty. Check document loading + splitting pipeline.")
+
+    if metadatas and len(texts) != len(metadatas):
+        raise ValueError(
+            f" Mismatch: texts={len(texts)} vs metadatas={len(metadatas)}"
+        )
 
     vectorstore = FAISS.from_texts(
         texts=texts,

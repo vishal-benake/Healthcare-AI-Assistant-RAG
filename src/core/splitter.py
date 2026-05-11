@@ -18,9 +18,14 @@ def split_documents(documents):
 
     chunks = text_splitter.split_documents(documents)
 
+    # chunks = [
+    #     chunk for chunk in chunks
+    #     if chunk.page_content and chunk.page_content.strip()
+    # ]
+
     chunks = [
-        chunk for chunk in chunks
-        if chunk.page_content and chunk.page_content.strip()
-    ]
+    chunk for chunk in chunks
+    if chunk.page_content and len(chunk.page_content.strip()) > 20
+      ]
 
     return chunks

@@ -41,7 +41,13 @@ def load_documents():
 
             file_path = os.path.join(root, file)
 
-            if not file.lower().endswith(SUPPORTED_EXTENSIONS):
+            # if not file.lower().endswith(SUPPORTED_EXTENSIONS):
+            #     continue
+            ALLOWED_EXTS = {".pdf", ".txt", ".csv", ".docx", ".md", ".xml"}
+
+            ext = os.path.splitext(file)[1].lower()
+
+            if ext not in ALLOWED_EXTS:
                 continue
 
             try:
@@ -68,10 +74,16 @@ def load_documents():
                     tree = ET.parse(file_path)
                     root_xml = tree.getroot()
 
-                    xml_text = " ".join(
+                    # xml_text = " ".join(
+                    #     text.strip()
+                    #     for text in root_xml.itertext()
+                    #     if text.strip()
+                    # )
+
+                    xml_text = "\n".join(
                         text.strip()
                         for text in root_xml.itertext()
-                        if text.strip()
+                        if len(text.strip()) > 2
                     )
 
                     xml_text = html.unescape(xml_text)
