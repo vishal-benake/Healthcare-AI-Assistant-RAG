@@ -6,180 +6,122 @@
 
 ---
 
-A production-style Retrieval-Augmented Generation (RAG) system for healthcare assistance.  
-It retrieves relevant information from documents and generates grounded responses using a large language model.
+
+A professional-grade Retrieval-Augmented Generation (RAG) system designed to provide clinical insights by indexing medical documents (PDF, XML, CSV, TXT) and querying them using Large Language Models.
+
+##  Key Features
+*   **Multi-Format Ingestion:** Seamlessly processes PDFs, Clinical XMLs, CSV data, and raw text.
+*   **Hybrid Architecture:** Separate data pipeline for high-performance vectorization and a Flask API for real-time interaction.
+*   **Optimized Retrieval:** Uses `RecursiveCharacterTextSplitter` with tuned chunking (2000/100) for fast, context-aware medical querying.
+*   **Vector Search:** Powered by FAISS and HuggingFace Embeddings (`all-MiniLM-L6-v2`).
+*   **Background Sync:** (Optional) Integrated scheduler to monitor data folders for new clinical records.
 
 ---
 
-## Features
-
-- Multi-format document ingestion (PDF, TXT, DOCX, CSV, MD, XML)
-- Retrieval-Augmented Generation (RAG) pipeline
-- FAISS-based vector database for similarity search
-- Sentence Transformer embeddings for semantic retrieval
-- LLM-powered response generation using Groq API
-- Web-based chat interface
-- Source attribution for every response
-- Confidence scoring (high, medium, low)
-- Rule-based healthcare appointment system
-- Structured JSON responses for safety and consistency
-
----
-
-## System Architecture
-
-User Query  
-→ Flask Backend  
-→ Query Router (RAG or Appointment System)  
-→ FAISS Vector Search  
-→ Context Retrieval  
-→ LLM (Groq / LLaMA 3)  
-→ Structured JSON Response  
-→ Frontend UI
+##  Project Structure
+```text
+Healthcare-AI-Assistant-RAG/
+├── data/               # Drop clinical PDFs/XMLs/CSVs here
+├── faiss_index/        # Generated vector database (Auto-created)
+├── src/
+│   ├── api/            # Flask blueprints and routes
+│   ├── core/           # RAG Engine, Embedder, and LLM logic
+│   ├── data_handlers/  # Ingestor and document parsers
+│   └── utils/          # Configuration and logging
+├── static/             # Frontend CSS/JS
+├── templates/          # HTML Interface
+├── app.py              # Main Web Server
+├── ingest_data.py      # Manual Data Pipeline script
+└── requirements.txt    # Project dependencies
 
 ---
 
-## Tech Stack
+## Installation & Setup
 
-- Backend: Flask  
-- Vector Database: FAISS  
-- Embeddings: sentence-transformers (all-MiniLM-L6-v2)  
-- LLM: Groq (LLaMA 3)  
-- Frontend: HTML, Bootstrap, JavaScript  
-- Frameworks: LangChain  
-- Language: Python 3.9+
-
----
-
-## How It Works
-
-### 1. Document Ingestion
-Loads documents from the data directory and extracts text.
-
-### 2. Text Splitting
-Splits documents into smaller semantic chunks.
-
-### 3. Embedding Generation
-Converts chunks into vector embeddings using a transformer model.
-
-### 4. Vector Storage
-Stores embeddings in FAISS for fast similarity search.
-
-### 5. Retrieval
-Finds relevant document chunks based on user query.
-
-### 6. Generation
-LLM generates a response based only on retrieved context.
-
----
-
-## Chat Features
-
-- Real-time chat interface
-- Typing animation for responses
-- Source citations for answers
-- Confidence scoring
-- Appointment booking assistant
-
----
-
-## Appointment System
-
-Supports structured booking queries for:
-
-- Cardiology
-- Neurology
-- Orthopedics
-
-Example:
-
-Book cardiology appointment on Monday
-
-Response includes:
-- Doctor name
-- Available slots
-- Structured output
-
----
-
-## Installation
-
-### Clone repository
-
-```bash
-git clone https://github.com/vishal-benake/healthcare-ai-assistance-RAG
+1. Clone & Environment
+Bash
+git clone [https://github.com/your-username/healthcare-rag.git](https://github.com/your-username/healthcare-rag.git)
 cd healthcare-rag
+python -m venv myenv
+source myenv/bin/activate  # Windows: myenv\Scripts\activate
 
 
-Create virtual environment
-python -m venv venv
-
-Activate:
-
-Windows
-
-venv\Scripts\activate
-
-Mac/Linux
-
-source venv/bin/activate
-Install dependencies
+## Install Dependencies
+Bash
 pip install -r requirements.txt
-Set API key
+3. Data Ingestion
+Place your medical documents in the /data folder, then run the pipeline to vectorize the content:
 
-Windows
-
-set GROQ_API_KEY=your_api_key
-
-Mac/Linux
-
-export GROQ_API_KEY=your_api_key
-Run application
+Bash
+python ingest_data.py
+4. Run the Application
+Bash
 python app.py
-Open in browser
-http://localhost:5000
-API Endpoints
-Health Check
-GET /health
+Visit http://localhost:5000 in your browser.
 
-Response:
+## Configuration
+Adjust performance settings in src/utils/config.py:
 
-{
-  "status": "ok"
-}
-Query Endpoint
-POST /query
+CHUNK_SIZE: 2000 (Optimized for speed)
 
-Request:
+CHUNK_OVERLAP: 100
 
-{
-  "query": "What is diabetes?"
-}
+DEVICE: 'cpu' (Change to 'cuda' for GPU acceleration)
 
-Response:
+---
 
-{
-  "answer": "...",
-  "confidence": "high",
-  "sources": ["file.pdf"]
-}
-Example Output
+Before running anything, ensure your virtual environment is active and all libraries are present.
 
-User:
-What are symptoms of diabetes?
+Activate Environment:
 
-Response:
+Bash
+myenv\Scripts\activate
+Install Requirements: (If you haven't already)
 
-Increased thirst
-Frequent urination
-Fatigue
+Bash
+    pip install -r requirements.txt
+    ```
 
-Confidence: High
-Sources: medical_data.pdf
+---
 
-Safety Features
-Response restricted to retrieved context only
-No hallucination policy enforced
-Structured JSON outputs
-Confidence scoring system
-Prompt injection protection
+##  The Data Ingestion (Manual)
+This is where the "Brain" is built. Do this whenever you add new files to the `data/` folder.
+
+1.  **Place Files:** Drop your PDFs, CSVs, or XMLs into the `data/` folder.
+2.  **Run Pipeline:**
+    ```bash
+    python ingest_data.py
+    ```
+3.  **What to watch for:** You should see a progress bar (e.g., `103/103`). Once it finishes, a new folder named `faiss_index` will appear in your project. **If this folder exists, your AI has "memory."**
+
+---
+
+## Launching the Interface
+Now that the database is ready, start the Flask server.
+
+1.  **Run App:**
+    ```bash
+    python app.py
+    ```
+2.  **Access:** Open your browser and go to:
+    `[http://127.0.0.1:5000](http://127.0.0.1:5000)`
+
+---
+
+##  How to use the Assistant
+Once the frontend loads, you can interact with it in three ways:
+
+*   **General Greetings:** Type "Hi" or "Hello." The system will respond using the LLM's internal knowledge.
+*   **Medical Queries:** Ask specific questions based on the files you uploaded (e.g., *"What are the symptoms mentioned in the latest patient report?"* or *"Summarize the treatment plan from the XML data."*).
+*   **Live Sync:** If you add a file while `app.py` is running, wait about 60 seconds. The **Background Scheduler** we set up will automatically detect it and update the "brain" without you needing to restart the server.
+
+---
+
+## Troubleshooting Common Issues
+
+| Issue | Solution |
+| :--- | :--- |
+| **"Database not initialized"** | You skipped Step 2. Run `python ingest_data.py` first. |
+| **"ModuleNotFoundError"** | You are likely not in your virtual environment (`myenv`). |
+| **System is slow** | Close Chrome tabs or other heavy apps. Embedding 1500+ chunks takes significant CPU power. |
+| **Old data appearing** | Delete the `faiss_index` folder and run `python ingest_data.py` again to do a "Fresh Install" of your knowledge. |

@@ -1,14 +1,29 @@
-flask
-faiss-cpu
-sentence-transformers
-langchain
-langchain-community
+# --- Core Framework ---
+langchain>=0.1.0
+langchain-community>=0.0.10
+langchain-groq>=0.1.0
+
+# --- Vector Database & Embeddings ---
+faiss-cpu>=1.7.4
+sentence-transformers>=2.2.2
+huggingface_hub>=0.20.0
 langchain-huggingface
-langchain-text-splitters
-langchain-groq
-python-dotenv
-pypdf
-docx2txt
-unstructured
-markdown
-accelerate
+
+# --- Backend & API ---
+flask>=3.0.0
+flask-cors>=4.0.0
+python-dotenv>=1.0.0
+Flask-APScheduler
+
+# --- Document Processing ---
+pypdf>=4.0.0
+tiktoken>=0.5.0
+
+# --- Utilities ---
+numpy>=1.24.0
+requests>=2.31.0
+
+pandas
+numpy
+
+-e .

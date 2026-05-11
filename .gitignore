@@ -12,6 +12,7 @@ __pycache__/
 venv/
 env/
 .venv/
+myenv
 
 # =========================
 # Environment variables
@@ -45,3 +46,7 @@ Thumbs.db
 # Jupyter Notebook checkpoints
 # =========================
 .ipynb_checkpoints/
+
+medlineplus/
+medquad/
+synthea/
