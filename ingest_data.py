@@ -10,7 +10,7 @@ def run_pipeline():
     # We call boot_up which triggers the Ingestor and Embedder
     engine = MedicalEngine()
     
-    print("🔍 Scanning 'data/' folder for documents...")
+    print("Scanning 'data/' folder for documents...")
     
     success = engine.boot_up()
     
