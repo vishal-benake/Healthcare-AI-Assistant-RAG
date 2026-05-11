@@ -1,5 +1,11 @@
 # Healthcare AI Assistant (RAG-Based System)
 
+![Maintenance](https://img.shields.io/badge/Maintained%3F-under%20maintenance-orange.svg)
+
+> **Note:** This repository is currently undergoing maintenance to improve document ingestion and fix directory pathing issues.
+
+---
+
 A production-style Retrieval-Augmented Generation (RAG) system for healthcare assistance.  
 It retrieves relevant information from documents and generates grounded responses using a large language model.
 
@@ -30,9 +36,6 @@ User Query
 → LLM (Groq / LLaMA 3)  
 → Structured JSON Response  
 → Frontend UI
-
----
-
 
 ---
 
