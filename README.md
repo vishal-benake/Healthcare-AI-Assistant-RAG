@@ -9,16 +9,18 @@
 
 A professional-grade Retrieval-Augmented Generation (RAG) system designed to provide clinical insights by indexing medical documents (PDF, XML, CSV, TXT) and querying them using Large Language Models.
 
+---
+
+![demo image](demo.png)
+
+---
+
 ##  Key Features
 *   **Multi-Format Ingestion:** Seamlessly processes PDFs, Clinical XMLs, CSV data, and raw text.
 *   **Hybrid Architecture:** Separate data pipeline for high-performance vectorization and a Flask API for real-time interaction.
 *   **Optimized Retrieval:** Uses `RecursiveCharacterTextSplitter` with tuned chunking (2000/100) for fast, context-aware medical querying.
 *   **Vector Search:** Powered by FAISS and HuggingFace Embeddings (`all-MiniLM-L6-v2`).
 *   **Background Sync:** (Optional) Integrated scheduler to monitor data folders for new clinical records.
-
----
-
-![demo image](demo.png)
 
 ---
 
