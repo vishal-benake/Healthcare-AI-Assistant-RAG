@@ -1,10 +1,12 @@
 # Healthcare AI Assistant (RAG-Based System)
 
-![Maintenance](https://img.shields.io/badge/Maintained%3F-under%20maintenance-orange.svg)
+<!-- ![Maintenance](https://img.shields.io/badge/Maintained%3F-under%20maintenance-orange.svg)
 
 > **Note:** This repository is currently undergoing maintenance to improve document ingestion and fix directory pathing issues.
 
----
+--- 
+
+-->
 
 
 A professional-grade Retrieval-Augmented Generation (RAG) system designed to provide clinical insights by indexing medical documents (PDF, XML, CSV, TXT) and querying them using Large Language Models.
